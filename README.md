@@ -1,2 +1,2 @@
 # XposedFrameworkMirror
-使用 github pages 搭建的 github framework 镜像仓库
+使用 Github Pages 搭建的 Xposed Framework 镜像仓库

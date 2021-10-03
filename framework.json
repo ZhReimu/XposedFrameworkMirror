@@ -2,7 +2,7 @@
   "zips": [
     {
       "title": "Version 90-beta$(version)",
-      "url": "http://dl-xda.xposed.info/framework/sdk$(sdk)/$(arch)/xposed-v90-sdk$(sdk)-$(arch)-beta$(version).zip",
+      "url": "https://xposed.x-mail.ml/framework/sdk$(sdk)/$(arch)/xposed-v90-sdk$(sdk)-$(arch)-beta$(version).zip",
       "versions": [
         { "version": "3", "current": true },
         { "version": "2" },
@@ -13,7 +13,7 @@
     },
     {
       "title": "Version $(version)",
-      "url": "http://dl-xda.xposed.info/framework/sdk$(sdk)/$(arch)/xposed-v$(version)-sdk$(sdk)-$(arch).zip",
+      "url": "https://xposed.x-mail.ml/framework/sdk$(sdk)/$(arch)/xposed-v$(version)-sdk$(sdk)-$(arch).zip",
       "versions": [
         { "version": "89", "current": true },
         { "version": "88.2" },
@@ -59,7 +59,7 @@
     },
     {
       "title": "Uninstaller ($(version))",
-      "url": "http://dl-xda.xposed.info/framework/uninstaller/xposed-uninstaller-$(version)-$(arch).zip",
+      "url": "https://xposed.x-mail.ml/framework/uninstaller/xposed-uninstaller-$(version)-$(arch).zip",
       "type": "uninstaller",
       "versions": [
         { "version": "20180117", "current": true },

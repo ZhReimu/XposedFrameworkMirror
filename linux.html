@@ -1,0 +1,109 @@
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linux 权限助手</title>
+    <script src="https://unpkg.com/vue@next"></script>
+    <style>
+        .p-name {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .permission {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .result {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .res::after {
+            content: "";
+            flex: auto;
+        }
+
+        .container {
+            width: 50%;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <div class="container">
+            <div class="p-name">
+                <div style="visibility: hidden;">测试: </div>
+                <div>读</div>
+                <div>写</div>
+                <div>执行</div>
+            </div>
+            <div class="permission">
+                <span>用户:</span>
+                <input type="checkbox" value="r" v-model="user">
+                <input type="checkbox" value="w" v-model="user">
+                <input type="checkbox" value="x" v-model="user">
+            </div>
+            <div class="permission">
+                <span>同组:</span>
+                <input type="checkbox" value="r" v-model="group">
+                <input type="checkbox" value="w" v-model="group">
+                <input type="checkbox" value="x" v-model="group">
+            </div>
+            <div class="permission">
+                <span>其它:</span>
+                <input type="checkbox" value="r" v-model="other">
+                <input type="checkbox" value="w" v-model="other">
+                <input type="checkbox" value="x" v-model="other">
+            </div>
+        </div>
+        <div class="result">
+            <span class="res" style="text-align:center;">
+                权限: {{result}}
+            </span>
+            <span class="res" style="text-align:center;">
+                八进制权限: {{numResult}}
+            </span>
+        </div>
+    </div>
+</body>
+<script>
+    const App = {
+        data() {
+            return {
+                user: [],
+                group: [],
+                other: [],
+            }
+        },
+        computed: {
+            result() {
+                return `-${this.user.join('')}
+                        -${this.group.join('')}
+                        -${this.other.join('')}`
+            },
+            numResult() {
+                const { user } = this
+                const { group } = this
+                const { other } = this
+                const xReduce = (prev, curr) => {
+                    if (curr === 'r') return prev + 4
+                    if (curr === 'w') return prev + 2
+                    if (curr === 'x') return prev + 1
+                }
+                return `${user.reduce(xReduce, 0)}
+                        ${group.reduce(xReduce, 0)}
+                        ${other.reduce(xReduce, 0)}`
+            }
+        }
+    }
+    Vue.createApp(App).mount('#app')
+</script>
+
+</html>
